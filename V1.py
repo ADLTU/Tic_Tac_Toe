@@ -46,8 +46,12 @@ class T(Frame):
             else:
                 messagebox.showinfo(title="Game Over", message="The winner is X !")
             sys.exit(0)
+        elif self.buttons[0]["text"] != " " and self.buttons[1]["text"] != " " and self.buttons[2]["text"] != " " and\
+                self.buttons[3]["text"] != " " and self.buttons[4]["text"] != " " and self.buttons[5]["text"] != " "and\
+                self.buttons[6]["text"] != " " and self.buttons[7]["text"] != " " and self.buttons[8]["text"] != " ":
+            messagebox.showinfo(title="Game Over", message="Draw !")
+            sys.exit(0)
 
-        # putting X or O if the button is empty
     def two_players(self, button1):
         if button1["text"] == " ":
             if self.click:
@@ -83,143 +87,559 @@ class T(Frame):
                             or self.buttons[6]["text"] == "X" or self.buttons[8]["text"] == "X":
                         self.buttons[4]["text"] = "O"
                         self.plays[1] = 1
-                    elif self.buttons[7]["text"] == "X" or self.buttons[5]["text"] == "X":
-                        self.buttons[8]["text"] = "O"
+                    elif self.buttons[7]["text"] == "X":
+                        self.buttons[1]["text"] = "O"
                         self.plays[1] = 2
-                    elif self.buttons[1]["text"] == "X" or self.buttons[3]["text"] == "X":
-                        self.buttons[0]["text"] = "O"
+                    elif self.buttons[5]["text"] == "X":
+                        self.buttons[3]["text"] = "O"
                         self.plays[1] = 3
+                    elif self.buttons[1]["text"] == "X":
+                        self.buttons[7]["text"] = "O"
+                        self.plays[1] = 4
+                    elif self.buttons[3]["text"] == "X":
+                        self.buttons[5]["text"] = "O"
+                        self.plays[1] = 5
                     elif self.buttons[4]["text"] == "X":
                         self.buttons[6]["text"] = "O"
-                        self.plays[1] = 4
+                        self.plays[1] = 6
                     self.plays[0] += 1
                     self.click = True
                 elif self.plays[0] == 1 and self.plays[1] == 1:
                     if self.buttons[0]["text"] == "X":
                         if self.buttons[1]["text"] == "X":
                             self.buttons[2]["text"] = "O"
+                            self.plays[2] = 1
                         elif self.buttons[2]["text"] == "X":
                             self.buttons[1]["text"] = "O"
+                            self.plays[2] = 2
                         elif self.buttons[3]["text"] == "X":
                             self.buttons[6]["text"] = "O"
+                            self.plays[2] = 3
                         elif self.buttons[6]["text"] == "X":
                             self.buttons[3]["text"] = "O"
+                            self.plays[2] = 4
                         elif self.buttons[5]["text"] == "X":
                             self.buttons[7]["text"] = "O"
+                            self.plays[2] = 5
                         elif self.buttons[7]["text"] == "X":
                             self.buttons[5]["text"] = "O"
-                        else:
-                            self.buttons[5]["text"] = "O"
-                    if self.buttons[2]["text"] == "X":
+                            self.plays[2] = 6
+                        elif self.buttons[8]["text"] == "X":
+                            self.buttons[3]["text"] = "O"
+                            self.plays[2] = 7
+                    elif self.buttons[2]["text"] == "X":
                         if self.buttons[1]["text"] == "X":
                             self.buttons[0]["text"] = "O"
+                            self.plays[2] = 8
                         elif self.buttons[0]["text"] == "X":
                             self.buttons[1]["text"] = "O"
+                            self.plays[2] = 9
                         elif self.buttons[3]["text"] == "X":
                             self.buttons[7]["text"] = "O"
+                            self.plays[2] = 10
                         elif self.buttons[7]["text"] == "X":
                             self.buttons[3]["text"] = "O"
+                            self.plays[2] = 11
                         elif self.buttons[8]["text"] == "X":
                             self.buttons[5]["text"] = "O"
+                            self.plays[2] = 12
                         elif self.buttons[5]["text"] == "X":
                             self.buttons[8]["text"] = "O"
+                            self.plays[2] = 13
                         else:
                             self.buttons[3]["text"] = "O"
-                    if self.buttons[6]["text"] == "X":
+                            self.plays[2] = 14
+                    elif self.buttons[6]["text"] == "X":
                         if self.buttons[3]["text"] == "X":
                             self.buttons[0]["text"] = "O"
+                            self.plays[2] = 15
                         elif self.buttons[0]["text"] == "X":
                             self.buttons[3]["text"] = "O"
+                            self.plays[2] = 16
                         elif self.buttons[8]["text"] == "X":
                             self.buttons[7]["text"] = "O"
+                            self.plays[2] = 17
                         elif self.buttons[7]["text"] == "X":
                             self.buttons[8]["text"] = "O"
+                            self.plays[2] = 18
                         elif self.buttons[1]["text"] == "X":
                             self.buttons[5]["text"] = "O"
+                            self.plays[2] = 19
                         elif self.buttons[5]["text"] == "X":
                             self.buttons[1]["text"] = "O"
+                            self.plays[2] = 20
                         else:
                             self.buttons[3]["text"] = "O"
-                    if self.buttons[8]["text"] == "X":
+                            self.plays[2] = 21
+                    elif self.buttons[8]["text"] == "X":
                         if self.buttons[2]["text"] == "X":
                             self.buttons[5]["text"] = "O"
+                            self.plays[2] = 22
                         elif self.buttons[5]["text"] == "X":
                             self.buttons[2]["text"] = "O"
+                            self.plays[2] = 23
                         elif self.buttons[6]["text"] == "X":
                             self.buttons[7]["text"] = "O"
+                            self.plays[2] = 24
                         elif self.buttons[7]["text"] == "X":
                             self.buttons[6]["text"] = "O"
+                            self.plays[2] = 25
                         elif self.buttons[1]["text"] == "X":
                             self.buttons[3]["text"] = "O"
+                            self.plays[2] = 26
                         elif self.buttons[3]["text"] == "X":
                             self.buttons[1]["text"] = "O"
+                            self.plays[2] = 27
                         else:
                             self.buttons[5]["text"] = "O"
+                            self.plays[2] = 28
                     self.plays[0] += 1
                     self.click = True
                 elif self.plays[0] == 1 and self.plays[1] == 2:
-                    if self.buttons[7]["text"] == "X":
-                        if self.buttons[5]["text"] == "X" or self.buttons[1]["text"] == "X" \
-                                or self.buttons[2]["text"] == "X":
-                            self.buttons[4]["text"] = "O"
-                        elif self.buttons[4]["text"] == "X" or self.buttons[0]["text"] == "X":
-                            self.buttons[1]["text"] = "O"
-                        elif self.buttons[6]["text"] == "X":
-                            self.buttons[5]["text"] = "O"
-                        else:
-                            self.buttons[2]["text"] = "O"
-                    if self.buttons[5]["text"] == "X":
-                        if self.buttons[7]["text"] == "X" or self.buttons[6]["text"] == "X" \
-                                or self.buttons[3]["text"] == "X":
-                            self.buttons[4]["text"] = "O"
-                        elif self.buttons[4]["text"] == "X" or self.buttons[0]["text"] == "X":
-                            self.buttons[3]["text"] = "O"
-                        elif self.buttons[1]["text"] == "X":
-                            self.buttons[6]["text"] = "O"
-                        else:
-                            self.buttons[7]["text"] = "O"
+                    if self.buttons[2]["text"] == "X" or self.buttons[5]["text"] == "X" \
+                            or self.buttons[6]["text"] == "X":
+                        self.buttons[8]["text"] = "O"
+                        self.plays[2] = 29
+                    else:
+                        self.buttons[6]["text"] = "O"
+                        self.plays[2] = 30
                     self.plays[0] += 1
                     self.click = True
                 elif self.plays[0] == 1 and self.plays[1] == 3:
-                    if self.buttons[1]["text"] == "X":
-                        if self.buttons[3]["text"] == "X" or self.buttons[6]["text"] == "X" \
-                                or self.buttons[7]["text"] == "X":
-                            self.buttons[4]["text"] = "O"
-                        elif self.buttons[4]["text"] == "X" or self.buttons[8]["text"] == "X":
+                    if self.buttons[6]["text"] == "X" or self.buttons[7]["text"] == "X" \
+                                or self.buttons[2]["text"] == "X":
+                        self.buttons[8]["text"] = "O"
+                        self.plays[2] = 31
+                    else:
+                        self.buttons[2]["text"] = "O"
+                        self.plays[2] = 32
+                    self.plays[0] += 1
+                    self.click = True
+                elif self.plays[0] == 1 and self.plays[1] == 4:
+                    if self.buttons[8]["text"] == "X" or self.buttons[5]["text"] == "X" \
+                                or self.buttons[0]["text"] == "X":
+                        self.buttons[2]["text"] = "O"
+                        self.plays[2] = 33
+                    else:
+                        self.buttons[0]["text"] = "O"
+                        self.plays[2] = 34
+                    self.plays[0] += 1
+                    self.click = True
+                elif self.plays[0] == 1 and self.plays[1] == 5:
+                    if self.buttons[8]["text"] == "X" or self.buttons[7]["text"] == "X" \
+                            or self.buttons[0]["text"] == "X":
+                        self.buttons[6]["text"] = "O"
+                        self.plays[2] = 35
+                    else:
+                        self.buttons[0]["text"] = "O"
+                        self.plays[2] = 36
+                    self.plays[0] += 1
+                    self.click = True
+                elif self.plays[0] == 1 and self.plays[1] == 6:
+                    if self.buttons[0]["text"] == "X":
+                        self.buttons[8]["text"] = "O"
+                        self.plays[2] = 37
+                    elif self.buttons[1]["text"] == "X":
+                        self.buttons[7]["text"] = "O"
+                        self.plays[2] = 38
+                    elif self.buttons[3]["text"] == "X":
+                        self.buttons[5]["text"] = "O"
+                        self.plays[2] = 39
+                    elif self.buttons[5]["text"] == "X":
+                        self.buttons[3]["text"] = "O"
+                        self.plays[2] = 40
+                    elif self.buttons[7]["text"] == "X":
+                        self.buttons[1]["text"] = "O"
+                        self.plays[2] = 41
+                    elif self.buttons[8]["text"] == "X":
+                        self.buttons[0]["text"] = "O"
+                        self.plays[2] = 42
+                    else:
+                        self.buttons[8]["text"] = "O"
+                        self.plays[2] = 43
+                    self.plays[0] += 1
+                    self.click = True
+                elif self.plays[0] == 2:
+                    if self.plays[2] == 1:
+                        if self.buttons[6]["text"] != "X":
+                            self.buttons[6]["text"] = "O"
+                        else:
+                            self.buttons[3]["text"] = "O"
+                    elif self.plays[2] == 2:
+                        if self.buttons[7]["text"] != "X":
                             self.buttons[7]["text"] = "O"
-                        elif self.buttons[2]["text"] == "X":
+                        else:
+                            self.buttons[6]["text"] = "O"
+                    elif self.plays[2] == 3:
+                        if self.buttons[2]["text"] != "X":
+                            self.buttons[2]["text"] = "O"
+                        else:
+                            self.buttons[1]["text"] = "O"
+                    elif self.plays[2] == 4:
+                        if self.buttons[5]["text"] != "X":
+                            self.buttons[5]["text"] = "O"
+                        else:
+                            self.buttons[2]["text"] = "O"
+                    elif self.plays[2] == 5:
+                        if self.buttons[1]["text"] != "X":
+                            self.buttons[1]["text"] = "O"
+                        else:
+                            self.buttons[2]["text"] = "O"
+                    elif self.plays[2] == 6:
+                        if self.buttons[3]["text"] != "X":
                             self.buttons[3]["text"] = "O"
                         else:
                             self.buttons[6]["text"] = "O"
-                    elif self.buttons[3]["text"] == "X":
-                        if self.buttons[1]["text"] == "X" or self.buttons[2]["text"] == "X" \
-                                or self.buttons[5]["text"] == "X":
-                            self.buttons[4]["text"] = "O"
-                        elif self.buttons[4]["text"] == "X" or self.buttons[8]["text"] == "X":
+                    elif self.plays[2] == 7:
+                        if self.buttons[5]["text"] != "X":
                             self.buttons[5]["text"] = "O"
-                        elif self.buttons[7]["text"] == "X":
+                        else:
                             self.buttons[2]["text"] = "O"
+                    elif self.plays[2] == 8:
+                        if self.buttons[8]["text"] != "X":
+                            self.buttons[8]["text"] = "O"
+                        else:
+                            self.buttons[5]["text"] = "O"
+                    elif self.plays[2] == 9:
+                        if self.buttons[7]["text"] != "X":
+                            self.buttons[7]["text"] = "O"
+                        else:
+                            self.buttons[3]["text"] = "O"
+                    elif self.plays[2] == 10:
+                        if self.buttons[1]["text"] != "X":
+                            self.buttons[1]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 11:
+                        if self.buttons[5]["text"] != "X":
+                            self.buttons[5]["text"] = "O"
+                        else:
+                            self.buttons[8]["text"] = "O"
+                    elif self.plays[2] == 12:
+                        if self.buttons[3]["text"] != "X":
+                            self.buttons[3]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 13:
+                        if self.buttons[0]["text"] != "X":
+                            self.buttons[0]["text"] = "O"
+                        else:
+                            self.buttons[1]["text"] = "O"
+                    elif self.plays[2] == 14:
+                        if self.buttons[5]["text"] != "X":
+                            self.buttons[5]["text"] = "O"
+                        else:
+                            self.buttons[8]["text"] = "O"
+                    elif self.plays[2] == 15:
+                        if self.buttons[8]["text"] != "X":
+                            self.buttons[8]["text"] = "O"
+                        else:
+                            self.buttons[7]["text"] = "O"
+                    elif self.plays[2] == 16:
+                        if self.buttons[5]["text"] != "X":
+                            self.buttons[5]["text"] = "O"
+                        else:
+                            self.buttons[2]["text"] = "O"
+                    elif self.plays[2] == 17:
+                        if self.buttons[1]["text"] != "X":
+                            self.buttons[1]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 18:
+                        if self.buttons[0]["text"] != "X":
+                            self.buttons[0]["text"] = "O"
+                        else:
+                            self.buttons[3]["text"] = "O"
+                    elif self.plays[2] == 19:
+                        if self.buttons[3]["text"] != "X":
+                            self.buttons[3]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 20:
+                        if self.buttons[7]["text"] != "X":
+                            self.buttons[7]["text"] = "O"
+                        else:
+                            self.buttons[8]["text"] = "O"
+                    elif self.plays[2] == 21:
+                        if self.buttons[5]["text"] != "X":
+                            self.buttons[5]["text"] = "O"
+                        else:
+                            self.buttons[8]["text"] = "O"
+                    elif self.plays[2] == 22:
+                        if self.buttons[3]["text"] != "X":
+                            self.buttons[3]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 23:
+                        if self.buttons[6]["text"] != "X":
+                            self.buttons[6]["text"] = "O"
+                        else:
+                            self.buttons[7]["text"] = "O"
+                    elif self.plays[2] == 24:
+                        if self.buttons[1]["text"] != "X":
+                            self.buttons[1]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 25:
+                        if self.buttons[2]["text"] != "X":
+                            self.buttons[2]["text"] = "O"
+                        else:
+                            self.buttons[5]["text"] = "O"
+                    elif self.plays[2] == 26:
+                        if self.buttons[5]["text"] != "X":
+                            self.buttons[5]["text"] = "O"
+                        else:
+                            self.buttons[2]["text"] = "O"
+                    elif self.plays[2] == 27:
+                        if self.buttons[7]["text"] != "X":
+                            self.buttons[7]["text"] = "O"
+                        else:
+                            self.buttons[6]["text"] = "O"
+                    elif self.plays[2] == 28:
+                        if self.buttons[3]["text"] != "X":
+                            self.buttons[3]["text"] = "O"
+                        else:
+                            self.buttons[6]["text"] = "O"
+                    elif self.plays[2] == 29:
+                        if self.buttons[2]["text"] == "X" and self.buttons[4]["text"] != "X":
+                            self.buttons[4]["text"] = "O"
+                        else:
+                            self.buttons[6]["text"] = "O"
+                        if self.buttons[5]["text"] == "X" and self.buttons[4]["text"] != "X":
+                            self.buttons[4]["text"] = "O"
+                        else:
+                            self.buttons[3]["text"] = "O"
+                        if self.buttons[6]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[2]["text"] = "O"
+                                elif self.buttons[2]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[3]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[3]["text"] = "O"
+                    elif self.plays[2] == 30:
+                        if self.buttons[0]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[8]["text"] = "O"
+                        elif self.buttons[3]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[5]["text"] = "O"
+                        elif self.buttons[4]["text"] == "X":
+                                if self.buttons[5]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[5]["text"] = "O"
+                                elif self.buttons[3]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[3]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[5]["text"] == "X":
+                                    self.buttons[2]["text"] = "O"
+                                elif self.buttons[2]["text"] == "X":
+                                    self.buttons[5]["text"] = "O"
+                    elif self.plays[2] == 31:
+                        if self.buttons[6]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[2]["text"] = "O"
+                        elif self.buttons[7]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[1]["text"] = "O"
+                        elif self.buttons[2]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[6]["text"] = "O"
+                                elif self.buttons[6]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[1]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[1]["text"] = "O"
+                    elif self.plays[2] == 32:
+                        if self.buttons[0]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[8]["text"] = "O"
+                        elif self.buttons[1]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[7]["text"] = "O"
+                        elif self.buttons[4]["text"] == "X":
+                                if self.buttons[7]["text"] == "X":
+                                    self.buttons[1]["text"] = "O"
+                                elif self.buttons[1]["text"] == "X":
+                                    self.buttons[7]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[7]["text"] = "O"
+                                elif self.buttons[7]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                    elif self.plays[2] == 33:
+                        if self.buttons[5]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[3]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[0]["text"] = "O"
+                        elif self.buttons[0]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[3]["text"] == "X":
+                                    self.buttons[6]["text"] = "O"
+                                elif self.buttons[6]["text"] == "X":
+                                    self.buttons[3]["text"] = "O"
+                    elif self.plays[2] == 34:
+                        if self.buttons[3]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[5]["text"] = "O"
+                        elif self.buttons[6]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[2]["text"] = "O"
+                        elif self.buttons[2]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[6]["text"] = "O"
+                                elif self.buttons[6]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[5]["text"] = "O"
+                                elif self.buttons[5]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                        elif self.buttons[4]["text"] == "X":
+                                if self.buttons[2]["text"] == "X":
+                                    self.buttons[6]["text"] = "O"
+                                elif self.buttons[6]["text"] == "X":
+                                    self.buttons[2]["text"] = "O"
+                                elif self.buttons[5]["text"] == "X":
+                                    self.buttons[3]["text"] = "O"
+                                elif self.buttons[3]["text"] == "X":
+                                    self.buttons[5]["text"] = "O"
+                    elif self.plays[2] == 35:
+                        if self.buttons[7]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[1]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[0]["text"] = "O"
+                        elif self.buttons[0]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[1]["text"] == "X":
+                                    self.buttons[0]["text"] = "O"
+                                elif self.buttons[0]["text"] == "X":
+                                    self.buttons[1]["text"] = "O"
+                    elif self.plays[2] == 36:
+                        if self.buttons[1]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[7]["text"] = "O"
+                        elif self.buttons[2]["text"] == "X":
+                            if self.buttons[4]["text"] != "X":
+                                self.buttons[4]["text"] = "O"
+                            else:
+                                self.buttons[6]["text"] = "O"
+                        elif self.buttons[4]["text"] == "X":
+                                if self.buttons[2]["text"] == "X":
+                                    self.buttons[1]["text"] = "O"
+                                elif self.buttons[1]["text"] == "X":
+                                    self.buttons[2]["text"] = "O"
+                                elif self.buttons[7]["text"] == "X":
+                                    self.buttons[6]["text"] = "O"
+                                elif self.buttons[6]["text"] == "X":
+                                    self.buttons[7]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                                if self.buttons[4]["text"] == "X":
+                                    self.buttons[2]["text"] = "O"
+                                elif self.buttons[2]["text"] == "X":
+                                    self.buttons[4]["text"] = "O"
+                                elif self.buttons[7]["text"] == "X":
+                                    self.buttons[8]["text"] = "O"
+                                elif self.buttons[8]["text"] == "X":
+                                    self.buttons[7]["text"] = "O"
+                    elif self.plays[2] == 37:
+                        if self.buttons[7]["text"] != "X":
+                            self.buttons[7]["text"] = "O"
+                        else:
+                            self.buttons[1]["text"] = "O"
+                    elif self.plays[2] == 38:
+                        if self.buttons[8]["text"] != "X":
+                            self.buttons[8]["text"] = "O"
+                        else:
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 39:
+                        if self.buttons[1]["text"] == "X" or self.buttons[2]["text"] == "X":
+                            self.buttons[7]["text"] = "O"
+                        elif self.buttons[7]["text"] == "X":
+                            self.buttons[1]["text"] = "O"
+                        elif self.buttons[0]["text"] == "X":
+                            self.buttons[8]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 40:
+                        if self.buttons[0]["text"] != "X":
+                            self.buttons[0]["text"] = "O"
+                        else:
+                            self.buttons[8]["text"] = "O"
+                    elif self.plays[2] == 41:
+                        if self.buttons[5]["text"] == "X" or self.buttons[2]["text"] == "X":
+                            self.buttons[3]["text"] = "O"
+                        elif self.buttons[3]["text"] == "X":
+                            self.buttons[5]["text"] = "O"
+                        elif self.buttons[0]["text"] == "X":
+                            self.buttons[8]["text"] = "O"
+                        elif self.buttons[8]["text"] == "X":
+                            self.buttons[0]["text"] = "O"
+                    elif self.plays[2] == 42:
+                        if self.buttons[3]["text"] != "X":
+                            self.buttons[3]["text"] = "O"
+                        else:
+                            self.buttons[5]["text"] = "O"
+                    elif self.plays[2] == 43:
+                        if self.buttons[7]["text"] != "X":
+                            self.buttons[7]["text"] = "O"
                         else:
                             self.buttons[1]["text"] = "O"
                     self.plays[0] += 1
                     self.click = True
-                elif self.plays[0] == 1 and self.plays[1] == 4:
-                    if self.buttons[0]["text"] == "X":
-                        self.buttons[8]["text"] = "O"
-                    elif self.buttons[1]["text"] == "X":
-                        self.buttons[7]["text"] = "O"
-                    elif self.buttons[3]["text"] == "X":
-                        self.buttons[5]["text"] = "O"
-                    elif self.buttons[5]["text"] == "X":
-                        self.buttons[3]["text"] = "O"
-                    elif self.buttons[7]["text"] == "X":
-                        self.buttons[1]["text"] = "O"
-                    elif self.buttons[8]["text"] == "X":
-                        self.buttons[0]["text"] = "O"
-                    else:
-                        self.buttons[8]["text"] = "O"
-                    self.plays[0] += 1
-                    self.click = True
+                    self.check()
                 else:
                     x = randint(0, 8)
                     while self.buttons[x]["text"] != " ":
