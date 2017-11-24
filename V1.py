@@ -47,7 +47,6 @@ class T(Frame):
                 messagebox.showinfo(title="Game Over", message="The winner is X !")
             sys.exit(0)
 
-        # putting X or O if the button is empty
     def two_players(self, button1):
         if button1["text"] == " ":
             if self.click:
