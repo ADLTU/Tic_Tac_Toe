@@ -7,27 +7,43 @@ from random import randint
 class T(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
+        self.difficulty = 0
         self.configure(bg="black")
         self.grid()
-        self.Start_message = Label(self, text="Hello Tkinter!", fg="light grey")
-        self.Start_message.grid(row=0, column=3)
-        self.Start_message.configure(bg="black")
-        self.message = Label(self, text=" ")
-        self.message.grid(row=1, column=2)
-        self.message.configure(bg="black")
+        self.start_menue()
         self.click = True  # Start with X
         self.buttons = []
-        self.font = font.Font(family="Helvetica", size=9, weight="bold")
+        # self.font = font.Font(family="Helvetica", size=9, weight="bold")
         self.plays = [0, 0, 0]
+
+    def start_game(self, diff):
+        self.difficulty = diff
         # creating all the buttons
         for i in range(2, 5):
             for j in range(2, 5):
                 self.buttons.append(self.create_buttons(i, j))
 
+    def start_menue(self):
+        message1 = Label(self, text=" ", fg="light grey", bg="black")
+        message1.grid(row=0, column=1)
+        start_message = Label(self, text="Welcome to Tic Tac Toe", fg="light grey", bg="black")
+        start_message.grid(row=0, column=2)
+        message = Label(self, text="select player difficulty", fg="light grey", bg="black")
+        message.grid(row=1, column=4)
+        button1 = Button(self, text="One Player (Easy Mode)", height=3, width=20, fg="black", bg="light grey", command=lambda: self.start_game(1))
+        button1.grid(row=2, column=4)
+        button2 = Button(self, text="One Player (Hard Mode)", height=3, width=20, fg="black", bg="light grey", command=lambda: self.start_game(2))
+        button2.grid(row=3, column=4)
+        button3 = Button(self, text="Two Players", height=3, width=20, fg="black", bg="light grey", command=lambda: self.start_game(3))
+        button3.grid(row=4, column=4)
+
     def create_buttons(self, x, y):
-        button = Button(self, height=3, width=20, fg="black", command=lambda: self.hard_play(button))
-        button["text"] = " "
-        button["font"] = self.font
+        if self.difficulty == 1:
+            button = Button(self, text=" ", height=3, width=20, fg="black", command=lambda: self.easy_play(button))
+        if self.difficulty == 2:
+            button = Button(self, text=" ", height=3, width=20, fg="black", command=lambda: self.hard_play(button))
+        if self.difficulty == 3:
+            button = Button(self, text=" ", height=3, width=20, fg="black", command=lambda: self.two_players(button))
         button.configure(bg="light grey")
         button.grid(row=x, column=y)
         return button
@@ -652,7 +668,7 @@ class T(Frame):
 root = Tk()
 root.title("Tic_Tac_Toe")
 root.configure(bg="black")
-root.geometry("450x250")
+root.geometry("460x250")
 
 app = T(root)
 
